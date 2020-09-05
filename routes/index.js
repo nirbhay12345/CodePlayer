@@ -34,20 +34,5 @@ router.get('/output', (req, res, next) => {
     }
   })
 });
-//
-// router.get('/output', (req,res,next) => {
-//
-//    var authenticated = req.params.authen || undefined;
-//    console.log(req.params.authen);
-//    console.log(authenticated);
-//    //do something to authenticate user
-//
-//    if(authenticated === true){
-//        //user is already authenticated
-//        res.render("output");
-//    }else {
-//      res.redirect('back');
-//    }
-// });
 
 module.exports = router;
