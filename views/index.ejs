@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+    <div class="ui grid">
+      <div class="three wide column">
+        <h2 class="ui header">
+          <i class="code icon"></i>
+          <%= title %>
+        </h2>
+        <p class="ui header">Welcome to <%= title %></p>
+
+        <div class="ui vertical compact inverted huge menu">
+          <a id="html" class="item toggleButtons selected">
+            <i class="html5 icon"></i>
+            HTML
+          </a>
+          <a id="css" class="item toggleButtons selected">
+            <i class="css3 alternate icon"></i>
+            CSS
+          </a>
+          <a id="javascript" class="item toggleButtons selected">
+            <i class="js icon"></i>
+            JavaScript
+          </a>
+          <a class="item">
+            <i class="share square icon"></i>
+            <button type="submit" class="ui inverted button" form="my-form">Output</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="thirteen wide column">
+        <form id="my-form" class="ui form" action="/output" method="post">
+          <div id="htmlPanel">
+            <textarea name="html" placeholder="HTML Goes here"></textarea>
+          </div>
+            <div id="cssPanel">
+              <textarea name="css" placeholder="CSS Goes here"></textarea>
+            </div>
+            <div id="javascriptPanel">
+              <textarea name="javascript" placeholder="JavaScript Goes here"></textarea>
+            </div>
+        </form>
+
+      </div>
+    </div>
+    <%- include("partials/footer") %>

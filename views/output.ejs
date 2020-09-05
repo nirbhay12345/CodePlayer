@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+    <iframe id="myFrame"></iframe>
+<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/dist/semantic.min.js"></script>
+<script type="text/javascript" src="/javascripts/script.js"></script>
+
+<script type="text/javascript">
+// $("iframe").onload =
+window.onload =  function updateText() {
+
+    var html = new Object();
+    var str = "<head><style>"+"<%= coding.css %>"+"</style></head>"+"<body>"+"<%= coding.html %>"+"</body>";
+    html = stringToHTML(str);
+    console.log(html);
+    console.log(html.body.innerHTML);
+    console.log(html.head.innerHTML);
+
+    var inside_iframe = "<html><head><style>" + String(html.head.innerText) + "</style></head>"+ "<body>"+ String(html.body.innerText) + "</body></html>";
+    console.log(inside_iframe);
+    document.getElementById("myFrame").srcdoc = inside_iframe;
+
+  }
+
+  function updateJava(){
+
+    var java = "<%=coding.javascript%>";
+    console.log(java);
+    $("iframe").contentWindow.eval("java");
+
+  }
+
+  $('#myFrame').on('load', function() {
+    // Handler for "load" called.
+    function updateJava(){
+
+      var java = "<%=coding.javascript%>";
+      console.log(java);
+      $("iframe").contentWindow.eval("java");
+
+    }
+  });
+</script>
+
+
+</body>
+</html>
