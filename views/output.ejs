@@ -8,7 +8,7 @@
 <script type="text/javascript">
 // $("iframe").onload =
 window.onload =  function updateText() {
-
+    alert("hi there");
     var html = new Object();
     var str = "<head><style>"+"<%= coding.css %>"+"</style></head>"+"<body>"+"<%= coding.html %>"+"</body>";
     html = stringToHTML(str);
@@ -20,26 +20,13 @@ window.onload =  function updateText() {
     console.log(inside_iframe);
     document.getElementById("myFrame").srcdoc = inside_iframe;
 
+      document.getElementById('myFrame').on('load', function() {
+        var java = "<%=coding.javascript%>";
+        console.log(java);
+        $("iframe").contentWindow.eval("java");
+    });
   }
 
-  function updateJava(){
-
-    var java = "<%=coding.javascript%>";
-    console.log(java);
-    $("iframe").contentWindow.eval("java");
-
-  }
-
-  $('#myFrame').on('load', function() {
-    // Handler for "load" called.
-    function updateJava(){
-
-      var java = "<%=coding.javascript%>";
-      console.log(java);
-      $("iframe").contentWindow.eval("java");
-
-    }
-  });
 </script>
 
 
