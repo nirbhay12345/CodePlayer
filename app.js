@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // DATABASE CONNECT
-mongoose.connect('mongodb://localhost:27017/CodePlayer', {
+mongoose.connect('<your db ip>', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
